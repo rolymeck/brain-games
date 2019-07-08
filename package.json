@@ -1,0 +1,17 @@
+{
+  "name": "braingames",
+  "version": "1.0.0",
+  "description": "fisrt project by hexlet student KhrebtovD",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "KhrebtovD",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/cli": "^7.5.0",
+    "@babel/core": "^7.5.0",
+    "@babel/node": "^7.5.0",
+    "@babel/preset-env": "^7.5.0"
+  }
+}
