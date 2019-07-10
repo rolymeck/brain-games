@@ -4,3 +4,4 @@ dist
 .config
 .npm
 .vscode
+.bash_history
