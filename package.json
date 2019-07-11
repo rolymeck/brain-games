@@ -4,9 +4,9 @@
   "description": "fisrt project by hexlet student KhrebtovD",
   "main": "index.js",
   "bin": {
-    "brain-games": "dist/game/brain-games.js",
-    "brain-even": "dist/game/brain-even.js",
-    "brain-calc": "dist/game/brain-calc.js"
+    "brain-games": "dist/games/brain-games.js",
+    "brain-even": "dist/games/brain-even.js",
+    "brain-calc": "dist/games/brain-calc.js"
   },
   "files": [
     "dist"
