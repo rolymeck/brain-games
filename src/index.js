@@ -1,28 +1,23 @@
 #!/usr/bin/env node
 import readlineSync from 'readline-sync';
+import { car, cdr } from '@hexlet/pairs';
 
-export const welcomeUser = () => {
+export const flow = (game) => {
   const userName = readlineSync.question('May I have your name? ');
-  console.log(`Hello, ${userName}!`);
-  return userName;
-};
-
-export const evenGame = (userName) => {
+  console.log(`Hello, ${userName}!\n`);
   const gameRound = (round = 1) => {
     if (round > 3) {
       console.log(`Congratulations, ${userName}!`);
       return true;
     }
-    const number = Math.round(Math.random() * 100);
-    const isEven = number % 2 === 0;
-    const correctAnswer = isEven ? 'yes' : 'no';
-    console.log(`Question: ${number}`);
+    const questionAndAnswerOfRound = game();
+    console.log(`Question: ${car(questionAndAnswerOfRound)}`);
     const userAnswer = readlineSync.question('Your answer: ');
-    if (userAnswer === correctAnswer) {
+    if (userAnswer === cdr(questionAndAnswerOfRound)) {
       console.log('Correct!');
       return gameRound(round + 1);
     }
-    console.log(`'${userAnswer}' is wrong answer ;(. Correct answer was '${correctAnswer}'.\nLet's try again, ${userName}!`);
+    console.log(`'${userAnswer}' is wrong answer ;(. Correct answer was '${cdr(questionAndAnswerOfRound)}'.\nLet's try again, ${userName}!`);
     return false;
   };
   return gameRound();

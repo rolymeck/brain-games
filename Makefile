@@ -1,9 +1,11 @@
 install:
 	npm install
 startG:
-	npx babel-node src/bin/brain-games.js
+	npx babel-node src/games/brain-games.js
 startE:
-	npx babel-node src/bin/brain-even.js
+	npx babel-node src/games/brain-even.js
+startC:
+	npx babel-node src/games/brain-calc.js
 publish:
 	npm publish --dry-run
 build:
