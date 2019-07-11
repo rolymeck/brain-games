@@ -2,7 +2,7 @@
 import readlineSync from 'readline-sync';
 import { car, cdr } from '@hexlet/pairs';
 
-export const flow = (game) => {
+const flow = (game) => {
   const userName = readlineSync.question('May I have your name? ');
   console.log(`Hello, ${userName}!\n`);
   const gameRound = (round = 1) => {
@@ -22,3 +22,4 @@ export const flow = (game) => {
   };
   return gameRound();
 };
+export default flow;
