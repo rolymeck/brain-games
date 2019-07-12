@@ -10,14 +10,14 @@ const flow = (game) => {
       console.log(`Congratulations, ${userName}!`);
       return true;
     }
-    const questionAndAnswerOfRound = game();
-    console.log(`Question: ${car(questionAndAnswerOfRound)}`);
+    const pairQuestionAnswer = game();
+    console.log(`Question: ${car(pairQuestionAnswer)}`);
     const userAnswer = readlineSync.question('Your answer: ');
-    if (userAnswer === cdr(questionAndAnswerOfRound)) {
+    if (userAnswer === cdr(pairQuestionAnswer)) {
       console.log('Correct!');
       return gameRound(round + 1);
     }
-    console.log(`'${userAnswer}' is wrong answer ;(. Correct answer was '${cdr(questionAndAnswerOfRound)}'.\nLet's try again, ${userName}!`);
+    console.log(`'${userAnswer}' is wrong answer ;(. Correct answer was '${cdr(pairQuestionAnswer)}'.\nLet's try again, ${userName}!`);
     return false;
   };
   return gameRound();

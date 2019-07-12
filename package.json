@@ -1,15 +1,15 @@
 {
   "name": "braingames",
-  "version": "1.0.0",
-  "description": "fisrt project by hexlet student KhrebtovD",
-  "main": "index.js",
+  "version": "0.0.1",
+  "description": "hexlet frontend project lvl1 - game",
+  "main": "dist/index.js",
   "bin": {
-    "brain-games": "dist/games/brain-games.js",
-    "brain-even": "dist/games/brain-even.js",
-    "brain-calc": "dist/games/brain-calc.js",
-    "brain-gcd": "dist/games/brain-gcd.js",
-    "brain-progression": "dist/games/brain-progression.js",
-    "brain-prime": "dist/games/brain-prime.js"
+    "brain-games": "dist/bin/brain-games.js",
+    "brain-even": "dist/bin/brain-even.js",
+    "brain-calc": "dist/bin/brain-calc.js",
+    "brain-gcd": "dist/bin/brain-gcd.js",
+    "brain-progression": "dist/bin/brain-progression.js",
+    "brain-prime": "dist/bin/brain-prime.js"
   },
   "files": [
     "dist"
@@ -20,6 +20,13 @@
   },
   "author": "KhrebtovD",
   "license": "ISC",
+  "keywords": [
+    "hexlet",
+    "project",
+    "frontend",
+    "level1",
+    "game"
+  ],
   "devDependencies": {
     "@babel/cli": "^7.5.0",
     "@babel/core": "^7.5.0",

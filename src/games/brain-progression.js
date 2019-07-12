@@ -1,6 +1,5 @@
 #!/usr/bin/env node
 import { cons } from '@hexlet/pairs';
-import flow from '..';
 
 const game = () => {
   const progression = (f, di, de) => {
@@ -19,5 +18,4 @@ const game = () => {
   return cons(question, correctAnswer);
 };
 
-console.log('Welcome to the Brain Games!\nWhat number is missing in the progression?\n');
-flow(game);
+export default game;

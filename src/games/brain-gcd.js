@@ -1,6 +1,5 @@
 #!/usr/bin/env node
 import { cons } from '@hexlet/pairs';
-import flow from '..';
 
 const game = () => {
   const gcd = (num1, num2) => {
@@ -27,5 +26,4 @@ const game = () => {
   return cons(question, correctAnswer);
 };
 
-console.log('Welcome to the Brain Games!\nFind the greatest common divisor of given numbers.\n');
-flow(game);
+export default game;

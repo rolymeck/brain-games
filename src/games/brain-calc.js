@@ -1,6 +1,5 @@
 #!/usr/bin/env node
 import { cons } from '@hexlet/pairs';
-import flow from '..';
 
 const game = () => {
   const stringOperator = (num) => {
@@ -30,5 +29,4 @@ const game = () => {
   return cons(question, correctAnswer);
 };
 
-console.log('Welcome to the Brain Games!\nWhat is the result of the expression?\n');
-flow(game);
+export default game;
