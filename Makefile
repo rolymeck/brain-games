@@ -1,7 +1,7 @@
 install:
 	npm install
 startG:
-	npx babel-node src/games/brain-games.js
+	npx babel-node src/games/brain-gcd.js
 startE:
 	npx babel-node src/games/brain-even.js
 startC:
