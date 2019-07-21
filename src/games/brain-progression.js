@@ -1,21 +1,22 @@
 #!/usr/bin/env node
 import { cons } from '@hexlet/pairs';
+import { getRandomInt } from '..';
 
-const game = () => {
-  const progression = (f, di, de) => {
-    let result = `${f}`;
-    for (let i = 1; i < 10; i += 1) {
-      result += i === de - 1 ? ' ..' : ` ${f + i * di}`;
+export const getValues = () => {
+  const progressionLength = 10;
+  const progression = (firstNum, diff, removedPosition) => {
+    let result = `${firstNum}`;
+    for (let i = 1; i < progressionLength; i += 1) {
+      result += i === removedPosition - 1 ? ' ..' : ` ${firstNum + i * diff}`;
     }
     return result;
   };
-  const firstNum = Math.round(Math.random() * 10);
-  const diffRandom = Math.ceil(Math.random() * 10);
-  const diff = diffRandom === 1 ? 2 : diffRandom;
-  const deletePosition = Math.ceil(Math.random() * 9) + 1;
-  const question = progression(firstNum, diff, deletePosition);
-  const correctAnswer = String(firstNum + (deletePosition - 1) * diff);
+  const firstNumber = getRandomInt(1, 10);
+  const difference = getRandomInt(2, 10);
+  const whereDelete = getRandomInt(2, progressionLength);
+  const question = progression(firstNumber, difference, whereDelete);
+  const correctAnswer = String(firstNumber + (whereDelete - 1) * difference);
   return cons(question, correctAnswer);
 };
 
-export default game;
+export const question = 'What number is missing in the progression?\n';

@@ -1,22 +1,23 @@
 #!/usr/bin/env node
 import { cons } from '@hexlet/pairs';
+import { getRandomInt } from '..';
 
-const game = () => {
-  const isSimple = (num) => {
+export const getValues = () => {
+  const isPrime = (num) => {
     const iter = (n) => {
       if (n === num) {
-        return 'yes';
+        return true;
       }
       if (num % n === 0) {
-        return 'no';
+        return false;
       }
       return iter(n + 1);
     };
     return iter(2);
   };
-  const question = Math.ceil(Math.random() * 100 + 1);
-  const correctAnswer = isSimple(question);
+  const question = getRandomInt(2, 100);
+  const correctAnswer = isPrime(question) ? 'yes' : 'no';
   return cons(question, correctAnswer);
 };
 
-export default game;
+export const question = 'Answer "yes" if given number is prime. Otherwise answer "no".\n';

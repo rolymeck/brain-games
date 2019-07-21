@@ -1,29 +1,27 @@
 #!/usr/bin/env node
 import { cons } from '@hexlet/pairs';
+import { getRandomInt } from '..';
 
-const game = () => {
-  const gcd = (num1, num2) => {
+export const getValues = () => {
+  const findGreatestCommonDivisor = (num1, num2) => {
     if (num1 === num2) {
       return num1;
     }
     const smallest = num1 < num2 ? num1 : num2;
     const biggest = num1 > num2 ? num1 : num2;
-    const find = (small, big) => (acc, div = 2) => {
-      if (div > small) {
-        return acc;
+    const iter = (big, small) => {
+      if (big % small === 0) {
+        return small;
       }
-      if (small % div === 0 && big % div === 0) {
-        return find(small / div, big / div)(acc * div, div);
-      }
-      return find(small, big)(acc, div + 1);
+      return iter(small, big % small);
     };
-    return find(smallest, biggest)(1, 2);
+    return iter(biggest, smallest);
   };
-  const num1 = Math.round(Math.random() * 47);
-  const num2 = Math.round(Math.random() * 47);
+  const num1 = getRandomInt(1, 47);
+  const num2 = getRandomInt(1, 47);
   const question = `${num1} ${num2}`;
-  const correctAnswer = String(gcd(num1, num2));
+  const correctAnswer = String(findGreatestCommonDivisor(num1, num2));
   return cons(question, correctAnswer);
 };
 
-export default game;
+export const question = 'Find the greatest common divisor of given numbers.\n';

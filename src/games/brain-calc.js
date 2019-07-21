@@ -1,18 +1,12 @@
 #!/usr/bin/env node
 import { cons } from '@hexlet/pairs';
+import { getRandomInt } from '..';
 
-const game = () => {
-  const stringOperator = (num) => {
-    if (num <= 33) {
-      return '+';
-    }
-    if (num <= 66) {
-      return '-';
-    }
-    return '*';
-  };
-  const operation = (num1, num2) => (operator) => {
-    switch (operator) {
+export const getValues = () => {
+  const operators = '+-*';
+  const operator = num => operators[num];
+  const operation = (num1, num2) => (symbol) => {
+    switch (symbol) {
       case '+':
         return num1 + num2;
       case '-':
@@ -21,12 +15,12 @@ const game = () => {
         return num1 * num2;
     }
   };
-  const num1 = Math.round(Math.random() * 30);
-  const num2 = Math.round(Math.random() * 30);
-  const num3 = Math.round(Math.random() * 100);
-  const question = `${num1} ${stringOperator(num3)} ${num2}`;
-  const correctAnswer = String(operation(num1, num2)(stringOperator(num3)));
+  const num1 = getRandomInt(1, 30);
+  const num2 = getRandomInt(1, 30);
+  const indexOfOperator = getRandomInt(0, 2);
+  const question = `${num1} ${operator(indexOfOperator)} ${num2}`;
+  const correctAnswer = String(operation(num1, num2)(operator(indexOfOperator)));
   return cons(question, correctAnswer);
 };
 
-export default game;
+export const question = 'What is the result of the expression?\n';
