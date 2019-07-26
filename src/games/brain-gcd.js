@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 import { cons } from '@hexlet/pairs';
-import { getRandomInt } from '..';
+import getRandom from '../utils';
 
 export const getValues = () => {
   const findGreatestCommonDivisor = (num1, num2) => {
@@ -17,8 +17,8 @@ export const getValues = () => {
     };
     return iter(biggest, smallest);
   };
-  const num1 = getRandomInt(1, 47);
-  const num2 = getRandomInt(1, 47);
+  const num1 = getRandom(1, 47);
+  const num2 = getRandom(1, 47);
   const question = `${num1} ${num2}`;
   const correctAnswer = String(findGreatestCommonDivisor(num1, num2));
   return cons(question, correctAnswer);

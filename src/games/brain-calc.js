@@ -1,12 +1,12 @@
 #!/usr/bin/env node
 import { cons } from '@hexlet/pairs';
-import { getRandomInt } from '..';
+import getRandom from '../utils';
 
 export const getValues = () => {
-  const operators = '+-*';
-  const operator = num => operators[num];
-  const operation = (num1, num2) => (symbol) => {
-    switch (symbol) {
+  const listOfOperators = '+-*';
+  const getOperator = num => listOfOperators[num];
+  const makeOperation = (num1, num2) => (currOperator) => {
+    switch (currOperator) {
       case '+':
         return num1 + num2;
       case '-':
@@ -15,11 +15,12 @@ export const getValues = () => {
         return num1 * num2;
     }
   };
-  const num1 = getRandomInt(1, 30);
-  const num2 = getRandomInt(1, 30);
-  const indexOfOperator = getRandomInt(0, 2);
-  const question = `${num1} ${operator(indexOfOperator)} ${num2}`;
-  const correctAnswer = String(operation(num1, num2)(operator(indexOfOperator)));
+  const num1 = getRandom(1, 30);
+  const num2 = getRandom(1, 30);
+  const indexOfOperator = getRandom(0, listOfOperators.length - 1);
+  const currentOperator = getOperator(indexOfOperator);
+  const question = `${num1} ${currentOperator} ${num2}`;
+  const correctAnswer = String(makeOperation(num1, num2)(currentOperator));
   return cons(question, correctAnswer);
 };
 

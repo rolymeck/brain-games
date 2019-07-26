@@ -1,21 +1,21 @@
 #!/usr/bin/env node
 import { cons } from '@hexlet/pairs';
-import { getRandomInt } from '..';
+import getRandom from '../utils';
 
 export const getValues = () => {
   const progressionLength = 10;
-  const progression = (firstNum, diff, removedPosition) => {
+  const progression = (firstNum, diff, hiddenPosition) => {
     let result = `${firstNum}`;
     for (let i = 1; i < progressionLength; i += 1) {
-      result += i === removedPosition - 1 ? ' ..' : ` ${firstNum + i * diff}`;
+      result += i === hiddenPosition - 1 ? ' ..' : ` ${firstNum + i * diff}`;
     }
     return result;
   };
-  const firstNumber = getRandomInt(1, 10);
-  const difference = getRandomInt(2, 10);
-  const whereDelete = getRandomInt(2, progressionLength);
-  const question = progression(firstNumber, difference, whereDelete);
-  const correctAnswer = String(firstNumber + (whereDelete - 1) * difference);
+  const firstNumber = getRandom(1, 10);
+  const difference = getRandom(2, 10);
+  const hiddenPlace = getRandom(2, progressionLength);
+  const question = progression(firstNumber, difference, hiddenPlace);
+  const correctAnswer = String(firstNumber + (hiddenPlace - 1) * difference);
   return cons(question, correctAnswer);
 };
 

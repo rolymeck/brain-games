@@ -1,9 +1,12 @@
 #!/usr/bin/env node
 import { cons } from '@hexlet/pairs';
-import { getRandomInt } from '..';
+import getRandom from '../utils';
 
 export const getValues = () => {
   const isPrime = (num) => {
+    if (num < 2) {
+      return false;
+    }
     const iter = (n) => {
       if (n === num) {
         return true;
@@ -15,7 +18,7 @@ export const getValues = () => {
     };
     return iter(2);
   };
-  const question = getRandomInt(2, 100);
+  const question = getRandom(2, 100);
   const correctAnswer = isPrime(question) ? 'yes' : 'no';
   return cons(question, correctAnswer);
 };
