@@ -1,5 +1,4 @@
 #!/usr/bin/env node
-import { getValues, question } from '../games/brain-calc';
-import flow from '..';
+import game from '../games/brain-calc';
 
-flow(getValues, question);
+game();
