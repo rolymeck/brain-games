@@ -1,9 +1,20 @@
 #!/usr/bin/env node
 import { cons } from '@hexlet/pairs';
-import { getRandom, makeOperation } from '../utils';
+import getRandom from '../utils';
 import flow from '..';
 
-const getValue = (listOfOperators) => {
+const makeOperation = (num1, num2) => (currentOperator) => {
+  switch (currentOperator) {
+    case '+':
+      return num1 + num2;
+    case '-':
+      return num1 - num2;
+    default:
+      return num1 * num2;
+  }
+};
+
+const getPair = (listOfOperators) => {
   const getOperator = index => listOfOperators[index];
   const num1 = getRandom(1, 30);
   const num2 = getRandom(1, 30);
@@ -14,8 +25,8 @@ const getValue = (listOfOperators) => {
   return cons(question, correctAnswer);
 };
 
-const question = 'What is the result of the expression?\n';
-const getValues = () => getValue('+-*');
-const game = () => flow(3)(getValues, question);
+const description = 'What is the result of the expression?';
+const getValues = () => getPair('+-*');
+const game = () => flow(3)(getValues, description);
 
 export default game;

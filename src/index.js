@@ -2,9 +2,10 @@
 import readlineSync from 'readline-sync';
 import { car, cdr } from '@hexlet/pairs';
 
-const flow = amountOfRounds => (getValue, question) => {
+const flow = amountOfRounds => (getValue, description) => {
   console.log('Welcome to the Brain Games!');
-  console.log(question);
+  console.log(description);
+  console.log('');
   const userName = readlineSync.question('May I have your name? ');
   console.log(`Hello, ${userName}!\n`);
   const gameRound = (round = 1) => {
