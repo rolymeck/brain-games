@@ -18,7 +18,7 @@ const findGreatestCommonDivisor = (num1, num2) => {
   return iter(biggest, smallest);
 };
 
-const getValues = () => {
+const generateRoundData = () => {
   const num1 = getRandom(1, 47);
   const num2 = getRandom(1, 47);
   const question = `${num1} ${num2}`;
@@ -27,6 +27,5 @@ const getValues = () => {
 };
 
 const description = 'Find the greatest common divisor of given numbers.';
-const game = () => flow(3)(getValues, description);
 
-export default game;
+export default () => flow(generateRoundData, description);

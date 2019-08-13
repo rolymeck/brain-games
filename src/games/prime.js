@@ -8,7 +8,7 @@ const isPrime = (num) => {
     return false;
   }
   const iter = (n) => {
-    if (n === num) {
+    if (n > num / 2) {
       return true;
     }
     if (num % n === 0) {
@@ -19,13 +19,12 @@ const isPrime = (num) => {
   return iter(2);
 };
 
-const getValues = () => {
+const generateRoundData = () => {
   const question = getRandom(2, 100);
   const correctAnswer = isPrime(question) ? 'yes' : 'no';
   return cons(question, correctAnswer);
 };
 
 const description = 'Answer "yes" if given number is prime. Otherwise answer "no".';
-const game = () => flow(3)(getValues, description);
 
-export default game;
+export default () => flow(generateRoundData, description);

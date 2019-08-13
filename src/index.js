@@ -2,28 +2,31 @@
 import readlineSync from 'readline-sync';
 import { car, cdr } from '@hexlet/pairs';
 
-const flow = amountOfRounds => (getValue, description) => {
+const flow = (generateRoundData, description) => {
   console.log('Welcome to the Brain Games!');
   console.log(description);
   console.log('');
   const userName = readlineSync.question('May I have your name? ');
   console.log(`Hello, ${userName}!\n`);
-  const gameRound = (round = 1) => {
-    if (round > amountOfRounds) {
+  const roundsCount = 3;
+  const buildRound = (counter) => {
+    if (counter > roundsCount) {
       console.log(`Congratulations, ${userName}!`);
-      return true;
+      return;
     }
-    const pairQuestionAnswer = getValue();
-    console.log(`Question: ${car(pairQuestionAnswer)}`);
+    const questionAndAnswer = generateRoundData();
+    const question = car(questionAndAnswer);
+    const answer = cdr(questionAndAnswer);
+    console.log(`Question: ${question}`);
     const userAnswer = readlineSync.question('Your answer: ');
-    if (userAnswer === cdr(pairQuestionAnswer)) {
+    if (userAnswer === answer) {
       console.log('Correct!');
-      return gameRound(round + 1);
+      buildRound(counter + 1);
+      return;
     }
-    console.log(`'${userAnswer}' is wrong answer ;(. Correct answer was '${cdr(pairQuestionAnswer)}'.`);
+    console.log(`'${userAnswer}' is wrong answer ;(. Correct answer was '${answer}'.`);
     console.log(`Let's try again, ${userName}!`);
-    return false;
   };
-  return gameRound();
+  return buildRound(1);
 };
 export default flow;
