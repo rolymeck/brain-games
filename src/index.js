@@ -1,6 +1,7 @@
-#!/usr/bin/env node
 import readlineSync from 'readline-sync';
 import { car, cdr } from '@hexlet/pairs';
+
+const roundsCount = 3;
 
 const flow = (generateRoundData, description) => {
   console.log('Welcome to the Brain Games!');
@@ -8,7 +9,6 @@ const flow = (generateRoundData, description) => {
   console.log('');
   const userName = readlineSync.question('May I have your name? ');
   console.log(`Hello, ${userName}!\n`);
-  const roundsCount = 3;
   const buildRound = (counter) => {
     if (counter > roundsCount) {
       console.log(`Congratulations, ${userName}!`);

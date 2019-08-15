@@ -1,4 +1,3 @@
-#!/usr/bin/env node
 import { cons } from '@hexlet/pairs';
 import getRandom from '../utils';
 import flow from '..';

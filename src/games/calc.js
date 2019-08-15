@@ -1,26 +1,28 @@
-#!/usr/bin/env node
 import { cons } from '@hexlet/pairs';
 import getRandom from '../utils';
 import flow from '..';
 
-const getAnswer = (num1, num2, currentOperator) => {
-  switch (currentOperator) {
+const calculate = (num1, num2, operator) => {
+  switch (operator) {
     case '+':
       return num1 + num2;
     case '-':
       return num1 - num2;
-    default:
+    case '*':
       return num1 * num2;
+    default:
+      return null;
   }
 };
 
+const operators = '+-*';
+
 const generateRoundData = () => {
-  const listOfOperators = '+-*';
   const num1 = getRandom(1, 30);
   const num2 = getRandom(1, 30);
-  const currentOperator = listOfOperators[getRandom(0, listOfOperators.length - 1)];
-  const question = `${num1} ${currentOperator} ${num2}`;
-  const correctAnswer = String(getAnswer(num1, num2, currentOperator));
+  const operator = operators[getRandom(0, operators.length - 1)];
+  const question = `${num1} ${operator} ${num2}`;
+  const correctAnswer = String(calculate(num1, num2, operator));
   return cons(question, correctAnswer);
 };
 
