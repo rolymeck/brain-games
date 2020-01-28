@@ -1,7 +1,7 @@
-# frontend-project-lvl1
-## made with ❤️ by KhrebtovD
-[![Maintainability](https://api.codeclimate.com/v1/badges/dd169898ab213729caa8/maintainability)](https://codeclimate.com/github/KhrebtovD/frontend-project-lvl1/maintainability)
-[![Build Status](https://travis-ci.org/KhrebtovD/frontend-project-lvl1.svg?branch=master)](https://travis-ci.org/KhrebtovD/frontend-project-lvl1)
+# brain-games
+## Cli-application, which is a set of mini-games.
+[![Maintainability](https://api.codeclimate.com/v1/badges/b75eaf22e3d016347189/maintainability)](https://codeclimate.com/github/rolymeck/brain-games/maintainability)
+[![Build Status](https://travis-ci.org/rolymeck/brain-games.svg?branch=master)](https://travis-ci.org/rolymeck/brain-games)
 
 ## brain-even
 [![asciicast](https://asciinema.org/a/86QP7QxpZPLBaW2Hs6H2QA5tS.svg)](https://asciinema.org/a/86QP7QxpZPLBaW2Hs6H2QA5tS)
